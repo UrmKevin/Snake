@@ -18,13 +18,13 @@ namespace Snake
             }
         }
 
-        public override void Draw()
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+        //public override void Draw()
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Yellow;
 
-            base.Draw();
+        //    base.Draw();
 
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        //    Console.ForegroundColor = ConsoleColor.White;
+        //}
     }
 }
