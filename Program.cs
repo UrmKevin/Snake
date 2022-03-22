@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Snake
@@ -10,7 +11,7 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Console.SetWindowSize(80, 30);
+            Console.SetBufferSize(600, 200);
 
             // Отрисовка рамочки
             HorizontalLine upLine = new HorizontalLine(0, 79, 0, '+');
@@ -27,7 +28,18 @@ namespace Snake
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Drow();
 
-            Console.ReadKey();
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
+
+            //Console.ReadKey();
         }
     }
 }
