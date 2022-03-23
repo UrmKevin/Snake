@@ -13,10 +13,10 @@ namespace Snake
         {
             Console.SetBufferSize(800, 250);
 
+            Snake score = new Snake();
             Walls walls = new Walls(80, 25);
             walls.Draw();
 
-            // Отрисовка точек
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
@@ -35,6 +35,7 @@ namespace Snake
                 {
                     food = foodCreator.CreateFood();
                     food.Draw();
+                    score.Output();
                 }
                 else
                 {
@@ -48,27 +49,10 @@ namespace Snake
                     snake.HandleKey(key.Key);
                 }
             }
-            WriteGameOver();
+            GameOver gameOver = new GameOver();
+            gameOver.WriteGameOver(); //конец игры
+            score.Output_2();
             Console.ReadLine();
-        }
-
-        static void WriteGameOver()
-        {
-            int xOffset = 25;
-            int yOffset = 8;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.SetCursorPosition(xOffset, yOffset++);
-            WriteText("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=", xOffset, yOffset++);
-            WriteText("И Г Р А    О К О Н Ч Е Н А", xOffset + 1, yOffset++);
-            yOffset++;
-            WriteText("Автор: Kevin Urm", xOffset + 6, yOffset++);
-            WriteText("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=", xOffset, yOffset++);
-        }
-
-        static void WriteText(String text, int xOffset, int yOffset)
-        {
-            Console.SetCursorPosition(xOffset, yOffset);
-            Console.WriteLine(text);
         }
     }
 }

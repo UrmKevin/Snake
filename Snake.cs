@@ -9,7 +9,9 @@ namespace Snake
     class Snake : Figure
     {
         Direction direction;
+        int pts;
 
+        public Snake() { }
         public Snake(Point tail, int length, Direction _direction)
         {
             direction = _direction;
@@ -77,6 +79,17 @@ namespace Snake
             {
                 return false;
             }
+        }
+        public void Output()
+        {
+            pts++;
+            Console.SetCursorPosition(81, 1);
+            Console.WriteLine($"Score: {pts}");
+        }
+        public void Output_2()
+        {
+            Console.SetCursorPosition(35, 11);
+            Console.WriteLine($"Score: {pts}");
         }
     }
 }
