@@ -14,7 +14,7 @@ namespace Snake
 
         Random random = new Random(); //переменная класса Random
 
-        public FoodCreator(int mapWidth,int mapHeight, char sym) //конструктор для создания еды, использующий поля: ширины, высоты и еды
+        public FoodCreator(int mapWidth, int mapHeight, char sym) //конструктор для создания еды, использующий поля: ширины, высоты и еды
         {
             this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
@@ -26,6 +26,21 @@ namespace Snake
             int x = random.Next(2, mapWidth - 2); //задает случайное значение переменной с помощью рандома в пределах ширины
             int y = random.Next(2, mapHeight - 2); //задает случайное значение переменной с помощью рандома в пределах высоты
             return new Point(x, y, sym); //создает и возвращает новую точку, подставляя значение в конструктор Point
+        }
+        public Point CreateRareFood()//генератор редкой еды
+        {
+            int rNum = random.Next(0, 2);
+
+            if (rNum == 1)
+            {
+                int x = random.Next(2, mapWidth - 2);
+                int y = random.Next(2, mapHeight - 2);
+                return new Point(x, y, sym);
+            }
+            else
+            {
+                return new Point(0, 0, '+');
+            }
         }
     }
 }

@@ -22,7 +22,9 @@ namespace Snake
             snake.Draw();
 
             FoodCreator foodCreator = new FoodCreator(80, 25, '$'); //создаёт еду в случайном месте
+            FoodCreator rareFoodCreator = new FoodCreator(80, 25, 'Õ');
             Point food = foodCreator.CreateFood();
+            Point rareFood = foodCreator.CreateRareFood();
             food.Draw();
 
             while (true) //основа
@@ -33,9 +35,24 @@ namespace Snake
                 }
                 if (snake.Eat(food))
                 {
-                    food = foodCreator.CreateFood();
+                    Random rnd = new Random();
+                    int spawnChance = rnd.Next(1, 4); //регулирует шанс выпадения редкой еды
+                    if (spawnChance == 1)
+                    {
+                        food = foodCreator.CreateFood();
+                        rareFood = rareFoodCreator.CreateRareFood();
+                    }
+                    else
+                    {
+                        food = foodCreator.CreateFood();
+                    }
+                    rareFood.Draw();
                     food.Draw();
                     score.Output();
+                }
+                if (snake.RareEat(rareFood))//если змея кушает, становится длиннее
+                {
+                    score.Output_Rare();
                 }
                 else
                 {

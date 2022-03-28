@@ -88,9 +88,29 @@ namespace Snake
                 return false;
             }
         }
+        public bool RareEat(Point rareFood)//метод поедания редкой еды
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(rareFood))
+            {
+                rareFood.sym = head.sym;
+                pList.Add(rareFood);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void Output() //метод показа очков во время игры
         {
             pts++;
+            Console.SetCursorPosition(81, 1);
+            Console.WriteLine($"Score: {pts}");
+        }
+        public void Output_Rare() //метод показа очков во время игры
+        {
+            pts = pts + 10;
             Console.SetCursorPosition(81, 1);
             Console.WriteLine($"Score: {pts}");
         }
