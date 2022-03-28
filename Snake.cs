@@ -9,7 +9,7 @@ namespace Snake
     class Snake : Figure //класс типа наследия
     {
         Direction direction; //переменная типа класса enum
-        int pts;
+        public int pts;
 
         public Snake() { }
         public Snake(Point tail, int length, Direction _direction)
@@ -30,6 +30,14 @@ namespace Snake
             pList.Remove(tail);
             Point head = GetNextPoint();
             pList.Add(head);
+
+            Random rnd = new Random();
+            ConsoleColor[] colours = { ConsoleColor.Red, ConsoleColor.Blue };
+            while (true)
+            {
+                Console.ForegroundColor = colours[rnd.Next(0, colours.Length)]; //рандомно меняет цвет переднего плана
+                break;
+            }
 
             tail.Clear();
             head.Draw();

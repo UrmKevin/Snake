@@ -12,7 +12,7 @@ namespace Snake
         {
             int xOffset = 25; //кординаты по x
             int yOffset = 8; //кординаты по y
-            Console.ForegroundColor = ConsoleColor.Green; //цвет текста
+            Console.ForegroundColor = ConsoleColor.Red; //цвет текста
             Console.SetCursorPosition(xOffset, yOffset++);
             WriteText("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=", xOffset, yOffset++); //текст
             WriteText("G A M E   O V E R !", xOffset + 5, yOffset++);
