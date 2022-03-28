@@ -8,27 +8,27 @@ namespace Snake
 {
     class Point
     {
-        public int x;
-        public int y;
-        public char sym;
+        public int x; //поле значение x 
+        public int y; //поле значение y
+        public char sym; //поле символа
 
-        public Point() { }
+        public Point() { } // пустой конструктор
 
-        public Point(int _x, int _y, char _sym)
+        public Point(int _x, int _y, char _sym) //конструктор с кординатами и символом
         {
             x = _x;
             y = _y;
             sym = _sym;
         }
 
-        public Point(Point p)
+        public Point(Point p) //конструктор который обновляет значения объекта типа Point
         {
             x = p.x;
             y = p.y;
             sym = p.sym;
         }
 
-        public void Move(int offset, Direction direction)
+        public void Move(int offset, Direction direction) //метод движения
         {
             if (direction == Direction.RIGHT)
             {
@@ -48,18 +48,18 @@ namespace Snake
             }
         }
 
-        public bool IsHit(Point p)
+        public bool IsHit(Point p) //метод поедание еды
         {
             return p.x == this.x && p.y == this.y;
         }
 
-        public void Draw()
+        public void Draw() //метод отрисовки точек
         {
             Console.SetCursorPosition(x, y);
             Console.Write(sym);
         }
 
-        public void Clear()
+        public void Clear() //метод для очистки
         {
             sym = ' ';
             Draw();

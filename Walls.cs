@@ -10,12 +10,12 @@ namespace Snake
     {
         List<Figure> wallList;
 
-        public Walls(int mapWidth, int mapHeight)
+        public Walls(int mapWidth, int mapHeight) //метод для создания рамки
         {
             wallList = new List<Figure>();
 
             // Frame
-            HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '+');
+            HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '+'); //Границы поля
             HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '+');
             VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '+');
             VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '+');
@@ -26,7 +26,7 @@ namespace Snake
             wallList.Add(rightLine);
         }
 
-        internal bool IsHit(Figure figure)
+        internal bool IsHit(Figure figure) //метод проверки столкновения со стеной
         {
             foreach (var wall in wallList)
             {
@@ -38,7 +38,7 @@ namespace Snake
             return false;
         }
 
-        public void Draw()
+        public void Draw() //метод создания рамки
         {
             foreach (var wall in wallList)
             {

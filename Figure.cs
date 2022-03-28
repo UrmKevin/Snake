@@ -8,9 +8,9 @@ namespace Snake
 {
     class Figure
     {
-        protected List<Point> pList;
+        protected List<Point> pList; //поле типа List, в котором будут содержаться значения типа(класса) Point
 
-        public void Draw()
+        public void Draw() //метод рисовки точек
         {
             foreach (Point p in pList)
             {
@@ -18,7 +18,7 @@ namespace Snake
             }
         }
 
-        internal bool IsHit(Figure figure)
+        internal bool IsHit(Figure figure) //метод для проверки столкновения, который берет объект типа(класса) Figure
         {
             foreach (var p in pList)
             {
@@ -28,7 +28,7 @@ namespace Snake
             return false;
         }
 
-        private bool IsHit(Point point)
+        private bool IsHit(Point point) //метод для проверки столкновения который берет объект типа(класса) Point и возвращает значение bool
         {
             foreach (var p in pList)
             {

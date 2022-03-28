@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Snake : Figure
+    class Snake : Figure //класс типа наследия
     {
-        Direction direction;
+        Direction direction; //переменная типа класса enum
         int pts;
 
         public Snake() { }
@@ -24,7 +24,7 @@ namespace Snake
             }
         }
 
-        internal void Move()
+        internal void Move() //метод движение змейки
         {
             Point tail = pList.First();
             pList.Remove(tail);
@@ -43,7 +43,7 @@ namespace Snake
             return nextPoint;
         }
 
-        internal bool IsHitTail()
+        internal bool IsHitTail() //метод поедание
         {
             var head = pList.Last();
             for (int i = 0; i < pList.Count - 2; i++)
@@ -54,7 +54,7 @@ namespace Snake
             return false;
         }
 
-        public void HandleKey(ConsoleKey key)
+        public void HandleKey(ConsoleKey key) //метод управления
         {
             if (key == ConsoleKey.LeftArrow)
                 direction = Direction.LEFT;
@@ -66,7 +66,7 @@ namespace Snake
                 direction = Direction.UP;
         }
 
-        internal bool Eat(Point food)
+        internal bool Eat(Point food) //метод поедания
         {
             Point head = GetNextPoint();
             if (head.IsHit(food))
@@ -80,13 +80,13 @@ namespace Snake
                 return false;
             }
         }
-        public void Output()
+        public void Output() //метод показа очков во время игры
         {
             pts++;
             Console.SetCursorPosition(81, 1);
             Console.WriteLine($"Score: {pts}");
         }
-        public void Output_2()
+        public void Output_2() //метод показа очков после смерти
         {
             Console.SetCursorPosition(35, 11);
             Console.WriteLine($"Score: {pts}");

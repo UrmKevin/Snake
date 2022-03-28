@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    enum Direction
+    enum Direction //класс enum в котором перечисляются направления
     {
-        LEFT,
+        LEFT, //направления
         RIGHT,
         UP,
         DOWN

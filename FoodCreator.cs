@@ -8,24 +8,24 @@ namespace Snake
 {
     class FoodCreator
     {
-        int mapWidth;
-        int mapHeight;
-        char sym;
+        int mapWidth; //поле: ширина
+        int mapHeight; //поле: высота
+        char sym; //поле: еда
 
-        Random random = new Random();
+        Random random = new Random(); //переменная класса Random
 
-        public FoodCreator(int mapWidth,int mapHeight, char sym)
+        public FoodCreator(int mapWidth,int mapHeight, char sym) //конструктор для создания еды, использующий поля: ширины, высоты и еды
         {
             this.mapWidth = mapWidth;
             this.mapHeight = mapHeight;
             this.sym = sym;
         }
 
-        public Point CreateFood()
+        public Point CreateFood() //метод создания еды в случайной точке
         {
-            int x = random.Next(2, mapWidth - 2);
-            int y = random.Next(2, mapHeight - 2);
-            return new Point(x, y, sym);
+            int x = random.Next(2, mapWidth - 2); //задает случайное значение переменной с помощью рандома в пределах ширины
+            int y = random.Next(2, mapHeight - 2); //задает случайное значение переменной с помощью рандома в пределах высоты
+            return new Point(x, y, sym); //создает и возвращает новую точку, подставляя значение в конструктор Point
         }
     }
 }

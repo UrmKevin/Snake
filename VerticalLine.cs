@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class VerticalLine : Figure
+    class VerticalLine : Figure // класс типа наследования
     {
-        public VerticalLine(int yUp, int yDown, int x, char sym)
+        public VerticalLine(int yUp, int yDown, int x, char sym) //конструктор создания линий
         {
             pList = new List<Point>();
             for (int y = yUp; y < yDown; y++) 

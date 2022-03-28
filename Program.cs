@@ -11,21 +11,21 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            Console.SetBufferSize(800, 250);
+            Console.SetBufferSize(800, 250); //размер окна
 
             Snake score = new Snake();
             Walls walls = new Walls(80, 25);
             walls.Draw();
 
-            Point p = new Point(4, 5, '*');
+            Point p = new Point(4, 5, '*'); //расположение змейки
             Snake snake = new Snake(p, 4, Direction.RIGHT);
             snake.Draw();
 
-            FoodCreator foodCreator = new FoodCreator(80, 25, '$');
+            FoodCreator foodCreator = new FoodCreator(80, 25, '$'); //создаёт еду в случайном месте
             Point food = foodCreator.CreateFood();
             food.Draw();
 
-            while (true)
+            while (true) //основа
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
